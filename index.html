@@ -6,7 +6,10 @@
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-           
+        <link rel="stylesheet" href="stylesheet.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+        
         <script>
           AFRAME.registerComponent('videohandler', {
               init: function () {
@@ -31,9 +34,8 @@
     <body style="margin: 0; overflow: hidden;">
        <a-scene
             loading-screen="dotsColor: white; backgroundColor: black;"
-            info-message="htmlSrc: #messageText;"
+            webxr="optionalFeatures: dom-overlay; overlayElement: #overlay"
             vr-mode-ui="enabled: false;"
-            loading-screen="enabled: false;"
             renderer="logarithmicDepthBuffer: true;"
             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
             id="scene"
@@ -42,8 +44,6 @@
             
         >
             <a-assets>
-
-                <a-asset-item id="messageText" src="message.html"></a-asset-item>
 
                 <a-asset-item
                     id="saeideh-asset"
@@ -218,6 +218,29 @@
 
             <a-entity camera></a-entity>
         </a-scene>
+
+        <div class="topnav" id="text">
+            <a href="#home" class="active">virtually ARt</a>
+            <div id="myLinks">
+              <a href="#news">News</a>
+              <a href="#contact">Contact</a>
+              <a href="#about">About</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+          
+          <script>
+          function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            } else {
+              x.style.display = "block";
+            }
+          }
+          </script>
 
 
 
