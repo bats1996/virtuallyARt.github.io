@@ -33,7 +33,7 @@
 
     <body style="margin: 0; overflow: hidden;">
        <a-scene
-            loading-screen="dotsColor: white; backgroundColor: black;"
+            loading-screen="dotsColor: white; backgroundColor: black; enabled: true;"
             webxr="optionalFeatures: dom-overlay; overlayElement: #overlay"
             vr-mode-ui="enabled: false;"
             renderer="logarithmicDepthBuffer: true;"
@@ -68,6 +68,11 @@
                 <a-asset-item
                     id="joshanne-asset"
                     src="assets/asset-joshanne.glb"
+                ></a-asset-item>
+
+                <a-asset-item
+                    id="julia-asset"
+                    src="assets/asset-julia.glb"
                 ></a-asset-item>
 
                 <video
@@ -106,6 +111,7 @@
                     gesture-handler
                 ></a-entity>
             </a-marker>
+
 <!-- This is Cat's marker -->
             <a-marker
                 id="cat-marker"
@@ -128,6 +134,30 @@
                     gesture-handler
                 ></a-entity>
             </a-marker>
+
+            <!-- This is Julia's marker -->
+            <a-marker
+                id="julia-marker"
+                type="pattern"
+                preset="custom"
+                url="assets/marker-julia.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity
+                    id="bowser-model-julia"
+                    rotation="270 0 0"
+                    scale="4 4 4"
+                    position="0.5 0 0"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#julia-asset"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
 <!-- This is Bea's marker -->
             <a-marker
                 type="pattern"
@@ -166,7 +196,7 @@
                 <a-entity
                     id="bowser-model-alice"
                     rotation="270 0 0"
-                    position="0 0 -2"
+                    position="0 0 2"
                     scale="0.1 0.1 0.1"
                     animation-mixer="loop: repeat"
                     gltf-model="#alice-asset"
